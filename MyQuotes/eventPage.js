@@ -6,6 +6,11 @@ var menuItem = {
 
 chrome.contextMenus.create(menuItem);
 
+
+chrome.storage.sync.get(["quotes"], function(items){
+	chrome.browserAction.setBadgeText({ "text": items.quotes.length.toString() });
+});
+
 chrome.contextMenus.onClicked.addListener(function(clickData){
 	if(clickData.menuItemId == "saveQuote" && clickData.selectionText){
 		chrome.storage.sync.get(["quotes"], function(items){
@@ -25,7 +30,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData){
 				type: "basic",
 				title: "Quote saved",
 				message: clickData.selectionText,
-				iconUrl: "128x128.png"
+				iconUrl: "images/icon128.png"
 				}
 			
 			chrome.notifications.create('', opt, function(){});			

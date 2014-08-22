@@ -1,0 +1,53 @@
+h1, h2, h3, h4, h5, h6 {
+            font-family: 'Shadows Into Light', cursive;
+        }
+
+        p, a, span, label, input, button, div {
+            font-family: 'Cardo', serif;
+        }
+
+        .btn.btn-block.btn-warning {
+            color: black;
+        }
+
+        .imgQuote {
+            width: 8%;
+            display: inline;
+        }
+
+        body, html {
+            height: 489px !important;
+            width: 600px;
+        }
+
+        body {
+            background-color: #FBF2A9;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .quote {
+            padding-top: 20%;
+        }
+
+        .lineheight {
+            line-height: 4.5 !important;
+        }
+
+        .container {
+            width: inherit;
+            padding-right: 10%;  
+            padding-bottom: 10%;         
+        }
+
+        #randomQuote {
+             font-family: 'Cardo', serif;
+        }
+
+        ol { 
+            list-style-type: none;
+        }
+
+        li { display: inline-block; }
