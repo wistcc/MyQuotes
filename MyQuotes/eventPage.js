@@ -1,3 +1,4 @@
+//Create contextMenu
 var menuItem = {
 	"id": "saveQuote",
 	"title": "Save quote",
@@ -6,11 +7,12 @@ var menuItem = {
 
 chrome.contextMenus.create(menuItem);
 
-
+//Setting the badge
 chrome.storage.sync.get(["quotes"], function(items){
 	chrome.browserAction.setBadgeText({ "text": items.quotes.length.toString() });
 });
 
+//Waiting for the context menu to be clicked to add the quote
 chrome.contextMenus.onClicked.addListener(function(clickData){
 	if(clickData.menuItemId == "saveQuote" && clickData.selectionText){
 		chrome.storage.sync.get(["quotes"], function(items){
@@ -23,6 +25,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData){
 				newQuote = [clickData.selectionText];
 			}
 
+			//Saving quote
 			chrome.storage.sync.set({ "quotes": newQuote });
 
 			//Create notification		
@@ -38,6 +41,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData){
 	}
 });
 
+//Setting the badge after a new quote is added
 chrome.storage.onChanged.addListener(function(){
 	chrome.storage.sync.get(["quotes"], function(items){
 		chrome.browserAction.setBadgeText({ "text": items.quotes.length.toString() });

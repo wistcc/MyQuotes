@@ -9,6 +9,7 @@ chrome.storage.sync.get(["quotes"], function(items){
 
 		var quoteBtns = document.getElementsByClassName('deleteQuote');
 
+		//Adding the onClick function to each quote's delete button
 		for(var i = quoteBtns.length -1; i >= 0; i--){
 			quoteBtns[i].onclick = function(){
 				if(confirm("Are you sure you want delete this quote?")){
